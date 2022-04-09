@@ -1,0 +1,13 @@
+# Documentation:
+# http://docs.ansible.com/ansible/galaxy.html# # the-ansible-galaxy-command-line-tool
+#
+# Example invocation:
+# ansible-galaxy install -r requirements.yml
+#
+# Advanced possibilities for requirements files:
+# http://docs.ansible.com/ansible/galaxy.html# # advanced-control-over-role-requirements-files
+#
+
+- src: git+https://github.com/ZoiosNET/ffw-ra-rauental-upgrader.git
+  version: main
+  name: upgrader
