@@ -4,8 +4,6 @@ if [ "$EUID" -ne 0 ]
 fi
 
 cd /opt
-mkdir alarmdisplay
-cd alarmdisplay/
 
 echo "Bitte geben sie den API-Key ein:"
 read tmpApiKey
