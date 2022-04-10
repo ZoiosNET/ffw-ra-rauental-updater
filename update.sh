@@ -1,3 +1,4 @@
+git checkout -- .
 git pull
 rm -rf external_roles
 ansible-galaxy install -r requirements.yml
