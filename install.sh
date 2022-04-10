@@ -11,6 +11,12 @@ read tmpApiKey
 export ApiKey="$tmpApiKey"
 echo "ApiKey=$tmpApiKey" >> /etc/environment
 
+echo "Bitte geben sie die Telegram-Bot-Token ein:"
+read tmpTelegramBotToken
+
+export TelegramBotToken="$tmpTelegramBotToken"
+echo "TelegramBotToken=$tmpTelegramBotToken" >> /etc/environment
+
 echo "Bitte geben sie die Telegram-Chat-Id ein:"
 read tmpTelegramChatId
 
