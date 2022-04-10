@@ -9,19 +9,19 @@ echo "Bitte geben sie den API-Key ein:"
 read tmpApiKey
 
 export ApiKey="$tmpApiKey"
-echo "ApiKey=$tmpApiKey" >> /etc/environment
+echo "ApiKey=\"$tmpApiKey\"" >> /etc/environment
 
 echo "Bitte geben sie die Telegram-Bot-Token ein:"
 read tmpTelegramBotToken
 
 export TelegramBotToken="$tmpTelegramBotToken"
-echo "TelegramBotToken=$tmpTelegramBotToken" >> /etc/environment
+echo "TelegramBotToken=\"$tmpTelegramBotToken\"" >> /etc/environment
 
 echo "Bitte geben sie die Telegram-Chat-Id ein:"
 read tmpTelegramChatId
 
 export TelegramChatId="$tmpTelegramChatId"
-echo "TelegramChatId=$tmpTelegramChatId" >> /etc/environment
+echo "TelegramChatId=\"$tmpTelegramChatId\"" >> /etc/environment
 
 apt install git ansible -y
 git clone https://github.com/ZoiosNET/ffw-ra-rauental-updater.git
