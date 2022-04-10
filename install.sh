@@ -29,3 +29,6 @@ git clone https://github.com/ZoiosNET/ffw-ra-rauental-updater.git
 cd ffw-ra-rauental-updater
 chmod 755 update.sh
 ./update.sh
+
+echo "reboot..."
+reboot
