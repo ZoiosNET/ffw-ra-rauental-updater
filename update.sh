@@ -5,7 +5,8 @@ curl -X POST \
 EOF
 ) https://api.telegram.org/bot$TelegramBotToken/sendMessage
 
-apt purge -y -qq ansible python3 python3-pip
+apt purge -y -qq ansible
+apt install -y -qq python3 python3-pip
 python -m pip install ansible
 
 curl -X POST \
