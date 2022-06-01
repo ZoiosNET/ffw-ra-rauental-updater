@@ -7,7 +7,7 @@ EOF
 
 apt purge -y -qq ansible
 apt install -y -qq python3 python3-pip
-python -m pip install ansible
+python3 -m pip install ansible
 
 curl -X POST \
      -H 'Content-Type: application/json' \
