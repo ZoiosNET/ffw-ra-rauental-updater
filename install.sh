@@ -29,7 +29,8 @@ read tmpTelegramChatId
 export TelegramChatId="$tmpTelegramChatId"
 echo "TelegramChatId=\"$tmpTelegramChatId\"" >> /etc/environment
 
-apt install git ansible -y
+apt install git python3 python3-pip -y
+python3 -m pip install ansible
 git clone https://github.com/ZoiosNET/ffw-ra-rauental-updater.git
 
 cd ffw-ra-rauental-updater
