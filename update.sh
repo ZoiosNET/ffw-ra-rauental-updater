@@ -5,8 +5,9 @@ curl -X POST \
 EOF
 ) https://api.telegram.org/bot$TelegramBotToken/sendMessage
 
-apt purge -y -qq ansible python3 python3-pip
-python -m pip install ansible
+apt purge -y -qq ansible
+apt install -y -qq python3 python3-pip
+python3 -m pip install ansible
 
 curl -X POST \
      -H 'Content-Type: application/json' \
@@ -27,11 +28,11 @@ curl -X POST \
 EOF
 ) https://api.telegram.org/bot$TelegramBotToken/sendMessage
 
-export ANSIBLE_CMD=$(ansible-playbook site.yml -e api_key=$ApiKey -e monitor_user_key=$MonitorUserKey -e telegram_bot_token=$TelegramBotToken -e telegram_chat_id=$TelegramChatId)
+ansible-playbook site.yml -e api_key=$ApiKey -e monitor_user_key=$MonitorUserKey -e telegram_bot_token=$TelegramBotToken -e telegram_chat_id=$TelegramChatId
 
 curl -X POST \
      -H 'Content-Type: application/json' \
      -d @<(cat <<EOF
-{"chat_id": "$TelegramChatId", "text": "$(hostname) (BASH): \n\n $ANSIBLE_CMD"}
+{"chat_id": "$TelegramChatId", "text": "$(hostname) (BASH): Finished!"}
 EOF
 ) https://api.telegram.org/bot$TelegramBotToken/sendMessage
