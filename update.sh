@@ -28,7 +28,7 @@ curl -X POST \
 EOF
 ) https://api.telegram.org/bot$TelegramBotToken/sendMessage
 
-ansible-playbook site.yml -e api_key=$ApiKey -e telegram_bot_token=$TelegramBotToken -e telegram_chat_id=$TelegramChatId
+ansible-playbook site.yml -e api_key=$ApiKey -e monitor_user_key=$MonitorUserKey -e telegram_bot_token=$TelegramBotToken -e telegram_chat_id=$TelegramChatId
 
 curl -X POST \
      -H 'Content-Type: application/json' \
