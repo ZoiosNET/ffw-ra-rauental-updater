@@ -7,25 +7,26 @@ cd /opt
 
 echo "Bitte geben sie den API-Key ein:"
 read tmpApiKey
-
 export ApiKey="$tmpApiKey"
 echo "ApiKey=\"$tmpApiKey\"" >> /etc/environment
 
 echo "Bitte geben sie den Monitor-User-Key ein:"
 read tmpMonitorUserKey
-
 export MonitorUserKey="$tmpMonitorUserKey"
 echo "MonitorUserKey=\"$tmpMonitorUserKey\"" >> /etc/environment
 
+echo "Bitte geben sie den System-User-Key ein:"
+read tmpSystemUserKey
+export SystemUserKey="$tmpSystemUserKey"
+echo "SystemUserKey=\"$tmpSystemUserKey\"" >> /etc/environment
+
 echo "Bitte geben sie die Telegram-Bot-Token ein:"
 read tmpTelegramBotToken
-
 export TelegramBotToken="$tmpTelegramBotToken"
 echo "TelegramBotToken=\"$tmpTelegramBotToken\"" >> /etc/environment
 
 echo "Bitte geben sie die Telegram-Chat-Id ein:"
 read tmpTelegramChatId
-
 export TelegramChatId="$tmpTelegramChatId"
 echo "TelegramChatId=\"$tmpTelegramChatId\"" >> /etc/environment
 
