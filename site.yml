@@ -1,7 +1,7 @@
 ---
 
 - hosts: localhost
-  gather_facts: false
+  gather_facts: true
   become: true
   serial: 1
 
