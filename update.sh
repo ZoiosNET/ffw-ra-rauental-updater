@@ -6,13 +6,13 @@ EOF
 ) https://api.telegram.org/bot$TelegramBotToken/sendMessage
 
 apt purge -y -qq ansible
-apt install -y -qq python3 python3-pip
+apt install -y -qq python3 python3-pip git git-lfs
 python3 -m pip install ansible
 
 git checkout -- .
 git pull
 rm -rf external_roles
-ansible-galaxy install -r requirements.yml
+ansible-galaxy install --force -r requirements.yml
 
 ansible-playbook site.yml -e api_key=$ApiKey -e monitor_user_key=$MonitorUserKey -e telegram_bot_token=$TelegramBotToken -e telegram_chat_id=$TelegramChatId
 
