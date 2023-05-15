@@ -22,3 +22,14 @@ curl -X POST \
 {"chat_id": "$TelegramChatId", "text": "$(hostname): Installation script finished!"}
 EOF
 ) https://api.telegram.org/bot$TelegramBotToken/sendMessage
+
+journalctl -u display-updater >> /tmp/display-updater.txt
+curl -F "chat_id=$TelegramChatId" -F document=@/tmp/display-updater.txt https://api.telegram.org/bot$TelegramBotToken/sendDocument
+
+echo ".Xauthority:" >> /tmp/infos.txt
+ls -lah /home/pi/.Xauthority >> /tmp/infos.txt
+echo "uname:" >> /tmp/infos.txt
+uname -m >> /tmp/infos.txt
+echo "dpkg-architecture:" >> /tmp/infos.txt
+dpkg --print-architecture >> /tmp/infos.txt
+curl -F "chat_id=$TelegramChatId" -F document=@/tmp/infos.txt https://api.telegram.org/bot$TelegramBotToken/sendDocument
