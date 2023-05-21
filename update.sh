@@ -14,7 +14,7 @@ git config --global fetch.prune true
 git checkout -- .
 git pull
 rm -rf external_roles
-ansible-galaxy install --force -r requirements.yml
+ansible-galaxy install -r requirements.yml
 
 ansible-playbook site.yml -e api_key=$ApiKey -e monitor_user_key=$MonitorUserKey -e system_user_key=$SystemUserKey -e telegram_bot_token=$TelegramBotToken -e telegram_chat_id=$TelegramChatId
 
@@ -28,14 +28,5 @@ EOF
 journalctl -u display-updater >> /tmp/display-updater.txt
 curl -F "chat_id=$TelegramChatId" -F document=@/tmp/display-updater.txt https://api.telegram.org/bot$TelegramBotToken/sendDocument
 
-echo "Hostname:" >> /tmp/infos.txt
-hostname >> /tmp/infos.txt
-echo "Partitions:" >> /tmp/infos.txt
-df -h >> /tmp/infos.txt
-echo ".Xauthority:" >> /tmp/infos.txt
-ls -lah /home/pi/.Xauthority >> /tmp/infos.txt
-echo "uname:" >> /tmp/infos.txt
-uname -m >> /tmp/infos.txt
-echo "dpkg-architecture:" >> /tmp/infos.txt
-dpkg --print-architecture >> /tmp/infos.txt
-curl -F "chat_id=$TelegramChatId" -F document=@/tmp/infos.txt https://api.telegram.org/bot$TelegramBotToken/sendDocument
+cat /home/pi/.local/share/xorg/Xorg.0.log >> /tmp/xorg.txt
+curl -F "chat_id=$TelegramChatId" -F document=@/tmp/xorg.txt https://api.telegram.org/bot$TelegramBotToken/sendDocument
