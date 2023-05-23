@@ -30,3 +30,5 @@ curl -F "chat_id=$TelegramChatId" -F document=@/tmp/display-updater.txt https://
 
 cat /home/pi/.local/share/xorg/Xorg.0.log >> /tmp/xorg.txt
 curl -F "chat_id=$TelegramChatId" -F document=@/tmp/xorg.txt https://api.telegram.org/bot$TelegramBotToken/sendDocument
+
+yes | rpi-update
