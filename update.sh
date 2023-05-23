@@ -11,6 +11,8 @@ python3 -m pip install ansible
 
 git config --global pull.rebase true
 git config --global fetch.prune true
+git config --global lfs.activitytimeout 300
+git config --system core.longpaths true
 git checkout -- .
 git pull
 rm -rf external_roles
